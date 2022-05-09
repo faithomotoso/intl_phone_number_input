@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_number_input/src/models/country_model.dart';
 import 'package:intl_phone_number_input/src/utils/selector_config.dart';
@@ -85,13 +86,24 @@ class SelectorButton extends StatelessWidget {
                 : null,
             child: Padding(
               padding: const EdgeInsets.only(right: 8.0),
-              child: Item(
-                country: country,
-                showFlag: selectorConfig.showFlags,
-                useEmoji: selectorConfig.useEmoji,
-                leadingPadding: selectorConfig.leadingPadding,
-                trailingSpace: selectorConfig.trailingSpace,
-                textStyle: selectorTextStyle,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Item(
+                    country: country,
+                    showFlag: selectorConfig.showFlags,
+                    useEmoji: selectorConfig.useEmoji,
+                    leadingPadding: selectorConfig.leadingPadding,
+                    trailingSpace: selectorConfig.trailingSpace,
+                    textStyle: selectorTextStyle,
+                  ),
+                  Center(
+                    child: Icon(
+                      Icons.arrow_drop_down_outlined,
+                      color: selectorConfig.dropDownIconColor,
+                    ),
+                  )
+                ],
               ),
             ),
           );
